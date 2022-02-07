@@ -1,0 +1,23 @@
+{
+  "name": "evolutionary_algorithm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "exceljs": "^4.3.0",
+    "fs": "^0.0.1-security",
+    "hamming": "0.0.2",
+    "path": "^0.12.7",
+    "random": "^3.0.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5",
+    "vega": "^5.21.0",
+    "vega-expression": "^5.0.0"
+  }
+}
