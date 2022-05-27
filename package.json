@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "NODE_OPTIONS=\"-r ts-node/register --no-warnings\" node --expose_gc --max-old-space-size=8192 ./index.ts",
+    "debug": "NODE_OPTIONS=\"-r ts-node/register --no-warnings\" node --inspect --expose_gc ./index.ts",
+    "plot": "NODE_OPTIONS=\"-r ts-node/register --no-warnings\" node --max-old-space-size=8192 ./plot.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,8 +15,11 @@
     "exceljs": "^4.3.0",
     "fs": "^0.0.1-security",
     "hamming": "0.0.2",
+    "lodash": "^4.17.21",
+    "ndjson": "^2.0.0",
     "path": "^0.12.7",
     "random": "^3.0.6",
+    "random-normal": "^1.0.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5",
     "vega": "^5.21.0",

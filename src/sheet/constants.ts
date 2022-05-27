@@ -1,0 +1,102 @@
+export const EACH_RUN_STATS_COLUMNS = [
+	{ header: 'NI', key: 'ni', width: 10 },
+	{ header: 'F_found', key: 'f_found', width: 10 },
+	{ header: 'F_avg', key: 'f_avg', width: 10 },
+	{ header: 'I_min', key: 'i_min', width: 10 },
+	{ header: 'NI_I_min', key: 'ni_i_min', width: 10 },
+	{ header: 'I_max', key: 'i_max', width: 10 },
+	{ header: 'NI_I_max', key: 'ni_i_max', width: 10 },
+	{ header: 'I_avg', key: 'i_avg', width: 10 },
+	{ header: 'GR_early', key: 'gr_early', width: 10 },
+	{ header: 'GR_avg', key: 'gr_avg', width: 10 },
+	{ header: 'GR_late', key: 'gr_late', width: 10 },
+	{ header: 'NI_GR_late', key: 'ni_gr_late', width: 10 },
+	{ header: 'RR_min', key: 'rr_min', width: 10 },
+	{ header: 'NI_RR_min', key: 'ni_rr_min', width: 10 },
+	{ header: 'RR_max', key: 'rr_max', width: 10 },
+	{ header: 'NI_RR_max', key: 'ni_rr_max', width: 10 },
+	{ header: 'RR_avg', key: 'rr_avg', width: 10 },
+	{ header: 'Teta_min', key: 'teta_min', width: 10 },
+	{ header: 'NI_Teta_min', key: 'ni_teta_min', width: 10 },
+	{ header: 'Teta_max', key: 'teta_max', width: 10 },
+	{ header: 'NI_Teta_max', key: 'ni_teta_max', width: 10 },
+	{ header: 'Teta_avg', key: 'teta_avg', width: 10 },
+	{ header: 's_min', key: 's_min', width: 10 },
+	{ header: 'NI_s_min', key: 'ni_s_min', width: 10 },
+	{ header: 's_max', key: 's_max', width: 10 },
+	{ header: 'NI_s_max', key: 'ni_s_max', width: 10 },
+	{ header: 's_avg', key: 's_avg', width: 10 }
+];
+
+const common = {width: 15, style: {
+	fill: {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor: { argb:'33F8FA78' }
+	},
+	border: {
+		top: {style:'thin'},
+		left: {style:'thin'},
+		bottom: {style:'thin'},
+		right: {style:'thin'}
+	}
+}};
+
+export const GROUPED_STATS_COLUMNS = [
+	{ header: 'Suc', key: 'suc', ...common },
+	{ header: 'Min', key: 'min', ...common },
+	{ header: 'Max', key: 'max', ...common },
+	{ header: 'Avg', key: 'avg', ...common },
+
+	{ header: 'Sigma_NI ', key: 'sigma_ni', ...common },
+	{ header: 'Min_I_min', key: 'min_i_min', ...common },
+	{ header: 'NI_I_min', key: 'ni_i_min', ...common },
+	{ header: 'Max_I_max', key: 'max_i_max', ...common },
+	{ header: 'NI_I_max', key: 'ni_i_max', ...common },
+	{ header: 'Avg_I_min', key: 'avg_i_min', ...common },
+	{ header: 'Avg_I_max', key: 'avg_i_max', ...common },
+	{ header: 'Avg_I_avg', key: 'avg_i_avg', ...common },
+	{ header: 'Sigma_I_max', key: 'sigma_i_max', ...common },
+	{ header: 'Sigma_I_min', key: 'sigma_i_min', ...common },
+	{ header: 'Sigma_I_avg', key: 'sigma_i_avg', ...common },
+	{ header: 'AvgGR_early', key: 'avggr_early', ...common },
+	{ header: 'MinGR_early', key: 'mingr_early', ...common },
+	{ header: 'MaxGR_early', key: 'maxgr_early', ...common },
+	{ header: 'AvgGR_late', key: 'avggr_late', ...common },
+	{ header: 'MinGR_late', key: 'mingr_late', ...common },
+	{ header: 'MaxGR_late', key: 'maxgr_late', ...common },
+	{ header: 'AvgGR_avg', key: 'avggr_avg', ...common },
+	{ header: 'MinGR_avg', key: 'mingr_avg', ...common },
+	{ header: 'MaxGR_avg', key: 'maxgr_avg', ...common },
+
+	{ header: 'Min_RR_min', key: 'min_rr_min', ...common },
+	{ header: 'NI_Min_RR_min', key: 'ni_min_rr_min', ...common },
+	{ header: 'Max_RR_max', key: 'max_rr_max', ...common },
+	{ header: 'NI_Max_RR_max', key: 'ni_max_rr_max', ...common },
+	{ header: 'Avg_RR_min', key: 'avg_rr_min', ...common },
+	{ header: 'Avg_RR_max', key: 'avg_rr_max', ...common },
+	{ header: 'Avg_RR_avg', key: 'avg_rr_avg', ...common },
+	{ header: 'Min_Teta_min', key: 'min_teta_min', ...common },
+	{ header: 'NI_Min_Teta_min', key: 'ni_min_teta_min', ...common },
+	{ header: 'Max_Teta_max', key: 'max_teta_max', ...common },
+	{ header: 'NI_Max_Teta_max', key: 'ni_max_teta_max', ...common },
+	{ header: 'Avg_Teta_min', key: 'avg_teta_min', ...common },
+	{ header: 'Avg_Teta_max', key: 'avg_teta_max', ...common },
+	{ header: 'Avg_Teta_avg', key: 'avg_teta_avg', ...common },
+	{ header: 'Sigma_RR_max', key: 'sigma_rr_max', ...common },
+	{ header: 'Sigma_RR_min', key: 'sigma_rr_min', ...common },
+	{ header: 'Sigma_RR_avg', key: 'sigma_rr_avg', ...common },
+	{ header: 'Sigma_Teta_max', key: 'sigma_teta_max', ...common },
+	{ header: 'Sigma_Teta_min', key: 'sigma_teta_min', ...common },
+	{ header: 'Sigma_Teta_avg', key: 'sigma_teta_avg', ...common },
+
+	{ header: 'Min_s_min', key: 'min_s_min', ...common },
+	{ header: 'NI_Min_s_min', key: 'ni_min_s_min', ...common },
+	{ header: 'Max_s_max', key: 'max_s_max', ...common },
+	{ header: 'NI_Max_s_max', key: 'ni_max_s_max', ...common },
+	{ header: 'Avg_s_min', key: 'avg_s_min', ...common },
+	{ header: 'Avg_s_max', key: 'avg_s_max', ...common },
+	{ header: 'Avg_s_avg', key: 'avg_s_avg', ...common },
+];
+
+export const EARLY_GR_ITERATION_NUMBER = 2;

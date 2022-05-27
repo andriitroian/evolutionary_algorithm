@@ -1,15 +1,38 @@
-import random from 'random'
-import { generatePopulation } from './utils/generatePopulation';
-import { FunctionSpec } from './functions';
-import { plot } from './utils/plot/plot';
+import { getStatsCollector } from './stats';
+import { getTerminationCondition } from './termination';
+import { buildPath } from './utils';
+import { Population } from './interfaces';
+import { getSelectionFunction } from './selection';
+import { FunctionSpec } from './functions/interfaces';
+import { cloneDeep } from 'lodash';
 
-export const run = (fnSpec: FunctionSpec, N: number) => {
-	const { OPTIMAL_CHROMOSOM, CHROMOSOM_LENGTH, fn } = fnSpec;
-	const population = generatePopulation({
-		N,
-		chromosomLength: CHROMOSOM_LENGTH,
-		optimalChromosom: OPTIMAL_CHROMOSOM
-	});
-	plot(fnSpec, population.map(c => ({ individual: parseInt(c, 2), health: fn(parseInt(c, 2)) })));
-	console.log(population.length);
+export const run = (
+	fnSpec: FunctionSpec,
+	mutation: Function,
+	_population: Population,
+	selectionOptions: {type: string, param: number},
+	run: number
+) => {
+	let population = cloneDeep(_population);
+	const N = _population.length;
+	const resultsDirPath = buildPath(fnSpec, N, `${selectionOptions.type}_${selectionOptions.param}`, run);
+	let stats = getStatsCollector(fnSpec, resultsDirPath);
+	let selection = getSelectionFunction(selectionOptions);
+	let shouldTerminate = getTerminationCondition(!mutation);
+	let iteration = 0;
+	while(!shouldTerminate(population, iteration)) {
+		const {nextGeneration, reproduction_rate, loss_of_diversity} = selection(population);
+		let newGeneration = nextGeneration;
+		if (!!mutation) {
+			newGeneration = mutation(nextGeneration);
+		}
+		stats.collect(iteration, population, newGeneration, reproduction_rate, loss_of_diversity);
+		population = newGeneration;
+		iteration++;
+	}
+	stats.finish();
+	stats = null;
+	selection = null;
+	shouldTerminate = null;
+	global.gc();
 };
